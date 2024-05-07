@@ -1,0 +1,44 @@
+import '/backend/api_requests/api_manager.dart';
+import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
+import '/backend/schema/structs/index.dart';
+import '/components/modal_sections/modal_user/modal_user_widget.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/material.dart';
+
+Future openUserDetails(BuildContext context) async {
+  if (MediaQuery.sizeOf(context).width <= 991.0) {
+    context.pushNamed(
+      'userDetails',
+      queryParameters: {
+        'username': serializeParam(
+          'Rody',
+          ParamType.String,
+        ),
+        'text': serializeParam(
+          'Hey can you help me',
+          ParamType.String,
+        ),
+      }.withoutNulls,
+    );
+  } else {
+    await showDialog(
+      barrierColor: FlutterFlowTheme.of(context).accent4,
+      context: context,
+      builder: (dialogContext) {
+        return Dialog(
+          elevation: 0,
+          insetPadding: EdgeInsets.zero,
+          backgroundColor: Colors.transparent,
+          alignment: AlignmentDirectional(0.0, 0.0)
+              .resolve(Directionality.of(context)),
+          child: ModalUserWidget(
+            username: 'Rowdy main',
+            text: 'Hello can you help m',
+          ),
+        );
+      },
+    );
+  }
+}

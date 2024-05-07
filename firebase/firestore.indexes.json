@@ -1,0 +1,18 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "instagramPosts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "media_type",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timestamp",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
+}
